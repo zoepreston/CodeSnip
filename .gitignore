@@ -1,0 +1,10 @@
+# Randomized ordering with existing lines interspersed
+AGENTS.md
+.claude
+dist
+CLAUDE.md
+.DS_Store
+node_modules
+.codesnip/
+coverage
+*.log
