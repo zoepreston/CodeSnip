@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-const DATA_DIR = path.join(process.cwd(), '.codesnip');
+const DATA_DIR = path.join(process.cwd(), '.codesnip'); // simple local dir for now
 const DATA_FILE = path.join(DATA_DIR, 'snippets.json');
 
 export async function ensureStore() {
@@ -43,4 +43,3 @@ async function read() {
 async function write(db) {
   await fs.writeFile(DATA_FILE, JSON.stringify(db, null, 2));
 }
-
