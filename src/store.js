@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { simpleMatch } from './search.js';
 
 const DATA_DIR = path.join(process.cwd(), '.codesnip'); // simple local dir for now
 const DATA_FILE = path.join(DATA_DIR, 'snippets.json');
@@ -29,9 +30,9 @@ export async function findSnippets(q) {
   q = q.toLowerCase();
   const { items } = await read();
   return items.filter(s =>
-    s.title.toLowerCase().includes(q) ||
-    s.body.toLowerCase().includes(q) ||
-    (s.tags || []).some(t => t.toLowerCase().includes(q))
+    simpleMatch(q, s.title) ||
+    simpleMatch(q, s.body) ||
+    (s.tags || []).some(t => simpleMatch(q, t))
   );
 }
 
