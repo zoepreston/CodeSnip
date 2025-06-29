@@ -7,10 +7,9 @@ Goals (MVP):
 - Tagging and simple search by tag or filename
 - Minimal CLI with a local JSON store
 
-This is a solo, nights-and-weekends project. Not production-ready.
+This is a solo, nights-and-weekends project. Not production-ready. Expect rough edges.
 CLI usage examples:
 
   snip add "hello" "console.log('hi')"
   snip list
   snip find hello
-
