@@ -15,7 +15,11 @@ async function main() {
         console.error('usage: snip add <title> <content>');
         process.exit(1);
       }
-      const id = await addSnippet({ title, body, tags: [] });
+      const tags = (process.env.SNIP_TAGS || '')
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean);
+      const id = await addSnippet({ title, body, tags });
       console.log(`added: ${id}`);
       break;
     }
@@ -38,4 +42,3 @@ async function main() {
 }
 
 main();
-
